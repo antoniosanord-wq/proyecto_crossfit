@@ -33,7 +33,7 @@ $datos = mysqli_fetch_assoc($query);
             <a href="competiciones.php" onclick="">COMPETICIONES</a>
             <a href="mi_progreso.php" onclick="competiciones()">MI PROGRESO</a>
             <a href="pagos.php">MIS PAGOS</a>
-            <a href="php/logout.php" class="boton-salir">SALIR</a>
+            <a href="index.html" class="boton-salir">SALIR</a>
         </div>
     </nav>
 
@@ -58,7 +58,7 @@ $datos = mysqli_fetch_assoc($query);
             </a>
             
 
-            <a href="progreso.php" class="tarjeta-enlace">
+            <a href="mi_progreso.php" class="tarjeta-enlace">
                 <section class="tarjeta seccion-unica">
                     <h2>Mi Progreso</h2>
                     <p>Ver progreso</p>

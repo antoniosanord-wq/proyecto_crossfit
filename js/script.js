@@ -81,10 +81,16 @@ function toggleWod(id) {
 
     contenedor.innerHTML = ""; 
 
-    for (let i = 7; i <= 21; i++) {
+    let esSabado = dia.toLowerCase().includes('bado');
+    let limiteHora = esSabado ? 12 : 21;
+
+    for (let i = 7; i <= limiteHora; i++) {
+         if(esSabado && i < 9)continue;
+
         const hora = i + ":00";
         const div = document.createElement('div');
         div.className = 'hora-item'; 
+       
         div.innerHTML = `
             <span>${hora}</span>
             <button class="boton-reservar-hora" onclick="reservar('${dia}', '${hora}')">Reservar</button>

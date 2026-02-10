@@ -1,17 +1,20 @@
 <?php
 session_start();
-include('php/conexion.php'); // Verifica que la carpeta sea 'php'
+include('php/conexion.php'); // conecta con mi BBDD
 
+// Si no existe el usuario, mandamos de nuevo al Login
 if (!isset($_SESSION['usuario'])) {
     header("Location: registro.html");
     exit();
 }
 
+$mensaje="";
+
 $email_usuario = $_SESSION['usuario'];
 
 // --- 1. ACTUALIZAR DATOS ---
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // IMPORTANTE: Asegúrate de que los names del HTML coincidan (back_squat con _)
+    // IMPORTANTE: Asegúrate de que los nombres del form en mi html coincidan 
     $peso = $_POST['peso'];
     $altura = $_POST['altura'];
     $snatch = $_POST['snatch'];
@@ -20,19 +23,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $front_squat = $_POST['front_squat'];
     $deadlift = $_POST['deadlift'];
 
-    $update_sql = "UPDATE usuario SET 
-                   peso='$peso', altura='$altura', 
-                   snatch='$snatch', clean_jerk='$clean_jerk', 
-                   back_squat='$back_squat', front_squat='$front_squat', 
+    $update_sql = "UPDATE usuarios SET 
+                   peso='$peso', 
+                   altura='$altura', 
+                   snatch='$snatch', 
+                   clean_jerk='$clean_jerk', 
+                   back_squat='$back_squat', 
+                   front_squat='$front_squat', 
                    deadlift='$deadlift' 
                    WHERE email = '$email_usuario'";
     
-    mysqli_query($conexion, $update_sql);
-    // Recargamos para ver los cambios aplicados
-    header("Location: mi_progreso.php");
-    exit();
+   // 9. Ejecuto la consulta en la base de datos
+    if (mysqli_query($conexion, $update_sql)) {
+        
+        // 10. Si funciona, guardamos 
+        $mensaje = "✅ Datos actualizados correctamente";
+        
+    } else {
+        
+        $mensaje = "❌ Error al guardar: " . mysqli_error($conexion);
+    }
 }
+
+// 12. Consultamos de nuevo los datos para que el formulario muestre los valores nuevos
+$query_datos = mysqli_query($conexion, "SELECT * FROM usuarios WHERE email = '$email_usuario'");
+$datos = mysqli_fetch_assoc($query_datos);
 ?>
+  
+ 
+
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -94,6 +114,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </form>
 </div>
+
+<?php if ($mensaje != ""): ?>
+    <script>
+        // Esto lanza una ventana emergente que el usuario debe aceptar para cerrar
+        alert("<?php echo $mensaje; ?>");
+    </script>
+<?php endif; ?>
 
 </body>
 </html>

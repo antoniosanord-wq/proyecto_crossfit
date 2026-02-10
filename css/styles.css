@@ -230,7 +230,7 @@ body.pagina-login {
     border-top: 5px solid aquamarine;
 }
 
-/* Efecto al pasar el ratón (Hover) */
+/* Efecto al pasar el ratón (Hover) y color de fondo de tarjetas al pasar el ratón */
 .tarjeta:hover {
     transform: translateY(-8px); /* Sube un poquito */
     border-color:aquamarine ;        
@@ -240,18 +240,14 @@ body.pagina-login {
 
 /* Estilo de los textos dentro de la tarjeta */
 .tarjeta h2 {
-    color: rgb(194, 246, 229);
+    color: aquamarine;
     font-size: 1.5rem;
     margin-bottom: 10px;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-.tarjeta p {
-    color: #888;              
-    font-size: 0.95rem;
-    line-height: 1.4;
-}
+
 
 /* --- PÁGINA RESERVAS --- */
 .selector-dias {
@@ -267,7 +263,7 @@ body.pagina-login {
 }
 
 .boton-dia {
-    background:#242121;
+    background:#393838;
     color: white;
     border: 1px solid aquamarine;
     padding: 12px 20px;
@@ -276,7 +272,7 @@ body.pagina-login {
     font-weight: bold;
     transition: 0.3s;
 }
-
+/*Fondo para día seleccionado*/
 .boton-dia.activo, .boton-dia:hover {
     background: rgb(77, 187, 150);
   
@@ -289,12 +285,12 @@ body.pagina-login {
     width: 100%;
     margin-top: 40px;
 }
-
+/*Cajita de las hora de reservas*/
 .hora-item {
     background: #c4c0c0;
     padding:40px 20px;
     border-radius: 18px;
-    border: 3px solid #282828;
+    border: 3px solid aquamarine;
     text-align: center;
 }
 
@@ -309,12 +305,6 @@ body.pagina-login {
     width: 100%;
 }
 
-.selecciona-dia{
-   text-align: center;
-    margin-top: 50px;
-    color: #666;
-    font-size: 1.1rem;
-}
 
 /*Página competiciones*/
 .grid-competiciones {
@@ -333,7 +323,7 @@ body.pagina-login {
     padding: 40px;
 }
 .tarjeta-competicion {
-    background-color: #222; /* Un gris oscuro para que resalte el aquamarine */
+    background-color: #222; 
     padding: 15px;
     border-radius: 15px;
     width: 380px;          /* Tamaño fijo para que todas sean iguales */
@@ -342,7 +332,7 @@ body.pagina-login {
 
 /* Estilo de la imagen/cartel */
 .tarjeta-competicion img {
-    width: 41%;
+    width: 42%;
     height: 180px;
     object-fit: cover; /* Para que la imagen no se deforme */
 }
@@ -352,12 +342,12 @@ body.pagina-login {
     padding: 15px;
     color: white;
 }
-
+/*Lugar de la competicion h3*/
 .info-competicion h3 {
     margin: 0;
     color: #50e3c2; 
 }
-
+/*Fecha de la competicion*/
 .info-competicion p {
     font-size: 0.9em;
     color: #ccc;
@@ -402,6 +392,74 @@ body.pagina-login {
     outline: none;
     width: 100%;
     box-sizing: border-box; /* Para que no se salga de la tarjeta */
+}
+
+/* --- ESTILOS PARA LA PÁGINA DE PAGOS --- */
+
+/* Contenedor que centra la tarjeta en la pantalla */
+.contenedor-pagos {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+/* Título de la sección */
+.h2-pagos {
+    margin-bottom: 20px;
+    color:rgb(6, 29, 21);
+    border-bottom: 2px solid aq;
+    padding-bottom: 10px;
+}
+
+/* Estructura de la tabla */
+.tabla-pagos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+/* Encabezados oscuros */
+.tabla-pagos th {
+    background-color:rgb(99, 104, 102);
+    color: #fff;
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+/* Celdas de la tabla */
+.tabla-pagos td {
+    padding: 15px 12px;
+    border-bottom: 1px solid aquamarine;
+    color: #fcf6f6;
+}
+
+/* Estilo para los estados */
+.estado-pagado, .estado-pendiente {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.estado-pagado {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.estado-pendiente {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Mensaje cuando no hay datos */
+.sin-datos {
+    text-align: center;
+    padding: 40px !important;
+    
 }
 
 
