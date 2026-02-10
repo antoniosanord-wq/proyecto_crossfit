@@ -1,0 +1,407 @@
+
+/* --- ESTILO PARA EL LOGIN --- */
+
+/* 1. Centramos todo el contenido en mitad de la pantalla */
+
+body {
+    background-color: #181818;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    
+}
+
+/* Solo centramos cuando sea la página de Login */
+body.pagina-login {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 2. La cajita del Login */
+.login-box {
+    background-color: #1e1e1e; /* Fondo de la tarjeta */
+    padding: 40px;
+    border-radius: 20px;       /* Bordes redondeados */
+    border: 1px solid rgb(98, 240, 192);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Sombra elegante */
+    width: 100%;
+    max-width: 350px;          /* Ancho máximo de la caja */
+    text-align: center;
+}
+
+/* 3. El título */
+.login-box h1 {
+   display: flex;
+    align-items: center;    /* Centra verticalmente logo y texto */
+    justify-content: center; /* Centra horizontalmente todo el bloque */
+    gap: 15px;              /* Espacio entre el logo y el texto */
+    color: aquamarine;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+}
+.logo-h1 {
+    width: 120px;           /* Ajusta el tamaño a mi gusto */
+    height: auto;          /* Mantiene la proporción */
+    border-radius: 5px;    /* Redondea un poco las esquinas del logo */
+}
+
+/* 4. Los campos de entrada (email y password) */
+.login-box input {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;       /* Bordes redondeados en inputs */
+    border: 1px solid #444;
+    background-color: #2a2a2a;
+    color: white;
+    font-size: 1rem;
+    box-sizing: border-box;    /* Para que el padding no deforme el ancho */
+    transition: 0.3s;
+}
+
+/* Efecto al hacer clic en el cuadro de texto */
+.login-box input:focus {
+    outline: none;
+    border-color: aquamarine;
+    background-color: #333;
+}
+
+/* 5. El botón de ENTRAR */
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    background-color:aquamarine;
+    color: rgb(8, 8, 8);
+    border: none;
+    border-radius: 10px;      /* Bordes redondeados en el botón */
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+/* Efecto al pasar el ratón por el botón */
+.login-box button:hover {
+    background-color: #3c8e89;
+  
+}
+
+/* Para que todo esté centradoy la altura */
+.login-box div[style*="display: flex"] input {
+    width: 50%;
+}
+
+/* Texto "¿No tienes una cuenta?"*/
+.texto-registro {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #888; 
+}
+
+.texto-registro a {
+    color: aquamarine; 
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.texto-registro a:hover {
+    text-decoration: underline;
+    color: #0e8a8e;
+}
+
+/*Entramos en el dashboard*/
+
+.barra-navegacion {
+    background-color: #121212; /* Fondo oscuro sólido */
+    padding: 15px 5%;          /* Espacio interno: 15px arriba/abajo, 5% a los lados */
+    display: flex;
+    justify-content: space-between; /* Logo a la izquierda, enlaces a la derecha */
+    align-items: center;
+    border-bottom: 1px solid #282828; /* Línea sutil divisoria */
+    position: sticky;          /* Se queda pegada arriba al hacer scroll */
+    top: 0;
+    z-index: 1000;             /* Asegura que siempre esté por encima de las tarjetas */
+}
+/*Cabecera bienvenida*/
+.cabecera-bienvenida{
+    margin-bottom: 40px; /* Espacio antes de las tarjetas */
+    border-left: 4px solid aquamarine; /* Un detalle de color a la izquierda */
+    padding-left: 20px;
+}
+.body-dashboard .cabecera-bienvenida h1 {
+    font-size: 2.2rem;
+    color: #ffffff;
+    font-weight: 300; /* Un toque fino */
+    letter-spacing: -1px;
+}
+
+.body-dashboard .cabecera-bienvenida h1 strong {
+    color:aquamarine; /* Tu naranja de marca */
+    font-weight: 700;
+    text-transform: capitalize; /* Asegura que el nombre empiece por mayúscula */
+}
+
+.logo { 
+    font-size: 1.4rem; 
+    color: white; 
+    text-decoration: none; 
+    font-weight: bold;
+    letter-spacing: -0.5px;
+}
+
+.logo strong { 
+    color: aquamarine; /* El naranja corporativo */
+}
+.logo img{
+    width: 90px;           /* Ajusta el tamaño a mi gusto */
+    height: auto;          /* Mantiene la proporción */
+    border-radius: 5px;    /* Redondea un poco las esquinas del logo */
+}
+
+
+.enlaces {
+    display: flex;
+    gap: 60px; /* Espacio uniforme entre botones */
+}
+
+.enlaces a { 
+    color: #888; 
+    text-decoration: none; 
+    font-weight: 600; 
+    font-size: 0.85rem; 
+    text-transform: uppercase; /* Estilo deportivo */
+    transition: 0.3s;
+}
+
+/* Estado activo y hover */
+.enlaces a:hover, 
+.enlaces a.activo { 
+    color: white; 
+}
+
+/* Botón de salir destacado */
+.boton-salir { 
+    color: aquamarine !important; 
+}
+
+.boton-salir:hover {
+    text-decoration: underline;
+}
+
+/*Tarjetas*/
+/* --- EL CONTENEDOR DE LAS TARJETAS --- */
+.panel-control {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px; /* Espacio entre tarjetas */
+    margin-top: 20px;
+    text-decoration: none;
+    
+}
+
+/* --- ESTILO DE LA TARJETA DE RESERVAS --- */
+.tarjeta-enlace {
+    text-decoration: none; /* Quitamos el subrayado del enlace */
+    color: inherit;
+    display: block;
+}
+
+.tarjeta {
+    background: #373636;      /* Gris muy oscuro */
+    padding: 35px;            /* Espacio interno para que respire */
+    border-radius: 15px;      /* Bordes redondeados modernos */
+    border: 1px solid #282828;
+    height: 180px;            /* Altura fija para que todas sean iguales */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* Centramos el contenido verticalmente */
+    transition: all 0.3s ease; /* Para que el efecto al pasar el ratón sea suave */
+    position: relative;
+    overflow: hidden;
+}
+
+/* El toque WodBuster: Borde superior naranja */
+.seccion-unica {
+    border-top: 5px solid aquamarine;
+}
+
+/* Efecto al pasar el ratón (Hover) */
+.tarjeta:hover {
+    transform: translateY(-8px); /* Sube un poquito */
+    border-color:aquamarine ;        
+    background: rgb(77, 187, 150);  /* Se aclara un pelín el fondo */
+   
+}
+
+/* Estilo de los textos dentro de la tarjeta */
+.tarjeta h2 {
+    color: rgb(194, 246, 229);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tarjeta p {
+    color: #888;              
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* --- PÁGINA RESERVAS --- */
+.selector-dias {
+    display: flex;
+    justify-content: space-between; /* Separa los botones ocupando todo el ancho */
+    align-items: center;
+    margin-bottom: 90px;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px; /* Ajusta esto según cuánto quieras que se estire */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.boton-dia {
+    background:#242121;
+    color: white;
+    border: 1px solid aquamarine;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.boton-dia.activo, .boton-dia:hover {
+    background: rgb(77, 187, 150);
+  
+}
+
+.cuadricula-horarios {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 25px;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.hora-item {
+    background: #c4c0c0;
+    padding:40px 20px;
+    border-radius: 18px;
+    border: 3px solid #282828;
+    text-align: center;
+}
+
+.boton-reservar-hora {
+    background: aquamarine;
+    color: rgb(35, 34, 34);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 9px;
+    margin-top: 15px;
+    cursor: pointer; /*aparece la manita*/
+    width: 100%;
+}
+
+.selecciona-dia{
+   text-align: center;
+    margin-top: 50px;
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/*Página competiciones*/
+.grid-competiciones {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Tarjeta de cada competición */
+.contenedor-grid-compes {
+    display: flex;
+    flex-wrap: wrap;       /* Si no caben, bajan a la siguiente fila */
+    justify-content: center; /* Esto las centra en el medio */
+    gap: 60px;             /* Espacio entre tarjetas */
+    padding: 40px;
+}
+.tarjeta-competicion {
+    background-color: #222; /* Un gris oscuro para que resalte el aquamarine */
+    padding: 15px;
+    border-radius: 15px;
+    width: 380px;          /* Tamaño fijo para que todas sean iguales */
+    text-align: center;
+}
+
+/* Estilo de la imagen/cartel */
+.tarjeta-competicion img {
+    width: 41%;
+    height: 180px;
+    object-fit: cover; /* Para que la imagen no se deforme */
+}
+
+/* Texto dentro de la tarjeta */
+.info-competicion {
+    padding: 15px;
+    color: white;
+}
+
+.info-competicion h3 {
+    margin: 0;
+    color: #50e3c2; 
+}
+
+.info-competicion p {
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+
+/* --- ESTILOS PARA EL FORMULARIO DE PROGRESO --- */
+
+/* Uso el contenedor que tengo en el HTML para dar prioridad */
+.contenedor-principal .tarjeta {
+    height: auto !important;     
+    justify-content: flex-start; 
+    padding: 30px;               
+    transform: none !important;  
+    
+}
+
+/* Estilos para los bloques de inputs que he creado */
+.input-biometria, .input-marcas {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.input-biometria label, .input-marcas label {
+    color: aquamarine;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.input-biometria input, .input-marcas input {
+    background: #e4dada;
+    border: 6px solid #444;
+    border-radius: 8px;
+    padding: 12px;
+    color: rgb(43, 41, 41);
+    font-size: 1rem;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box; /* Para que no se salga de la tarjeta */
+}
+
+
