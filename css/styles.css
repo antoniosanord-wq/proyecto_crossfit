@@ -445,20 +445,89 @@ body.pagina-login {
     font-weight: bold;
 }
 
-.estado-pagado {
-    background-color: #d4edda;
-    color: #155724;
-}
 
-.estado-pendiente {
-    background-color: #f8d7da;
-    color: #721c24;
-}
+
 
 /* Mensaje cuando no hay datos */
 .sin-datos {
     text-align: center;
     padding: 40px !important;
+    
+}
+
+/* Estilos para la tabla de administración */
+.table-admin_pagos {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #1a1a1a; /* Fondo oscuro como mi login */
+    color: #fff;
+    font-family: sans-serif;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table-admin_pagos thead tr {
+    background-color:aquamarine; 
+    color: #070707;
+    text-align: left;
+    font-weight: bold;
+}
+
+.table-admin_pagos th, 
+.table-admin_pagos td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #9a9797;
+}
+
+/* Color para las filas alternas */
+.table-admin_pagos tbody tr:nth-of-type(even) {
+    background-color: #262626;
+}
+
+/* Efecto al pasar el ratón */
+.table-admin_pagos tbody tr:hover {
+    background-color: #333;
+    transition: 0.3s;
+}
+
+/* Estilo para los estados (Pagado/Pendiente) */
+.table-admin_pagos strong {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    text-transform: uppercase;
+}
+
+/* Botón Editar */
+.table-admin_pagos a {
+    color:aquamarine;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid aquamarine;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.table-admin_pagos a:hover {
+    background-color: #ff9800;
+    color: #000;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .table-admin_pagos {
+        width: 100%;
+        font-size: 14px;
+    }
+}
+
+.header-admin_pagos{
+    background-color: rgb(63, 66, 66);
+    text-align: center;
+    color: #060000;
     
 }
 

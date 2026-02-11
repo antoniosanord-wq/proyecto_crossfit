@@ -56,7 +56,7 @@ $query_pagos = mysqli_query($conexion, "SELECT * FROM pagos WHERE email_usuario 
                             echo "<td>" . date("d/m/Y", strtotime($pago['fecha'])) . "</td>";
                             echo "<td>" . $pago['concepto'] . "</td>";
                             echo "<td>" . $pago['cantidad'] . "€</td>";
-                            echo "<td><span class='$claseEstado'>" . $pago['estado'] . "</span></td>";
+                            echo "<td>" . $pago['estado'] . "</span></td>";
                             echo "</tr>";
                         }
                     } else {

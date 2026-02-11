@@ -9,6 +9,7 @@ $peso     = $_POST['peso'];
 $altura   = $_POST['altura'];
 $edad     = $_POST['edad'];
 
+
 // 1. Comprobar si el email ya existe para no duplicar
 $comprobar = "SELECT * FROM usuarios WHERE email = '$email'";
 $resultado = mysqli_query($conexion, $comprobar);
