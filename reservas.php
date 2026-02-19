@@ -36,9 +36,8 @@ include('php/conexion.php')
     </div>
 </div>
 
- 
-   
-
-   <script src="js/script.js?v=2"></script>
+  <?php include('php/footer.php'); ?>
+  
+   <script src="js/script.js"></script>
 </body>
 </html>

@@ -29,39 +29,6 @@ function mostrarReservas() {
     console.log("Cambiando a vista de Reservas...");
 }
 
-// FUNCIÓN PARA CARGAR HORAS DE RESERVA
-function cargarHoras(dia, elemento) {
-    let botones = document.querySelectorAll('.boton-dia');
-    botones.forEach(btn => btn.classList.remove('activo'));
-    elemento.classList.add('activo');
-
-    let contenedor = document.getElementById('lista-horas');
-    contenedor.innerHTML = "";
-    
-    for (let h = 7; h <= 21; h++) {
-        contenedor.innerHTML += `
-            <div class="hora-item">
-                <span>${h}:00h</span>
-                <button class="boton-reservar-hora" onclick="confirmarReserva('${dia}', ${h})">RESERVAR</button>
-            </div>`;
-    }
-}
-
-function confirmarReserva(dia, hora) {
-    alert("¡Reserva confirmada para el " + dia + " a las " + hora + ":00!");
-}
-
-// FUNCIÓN PARA DESPLEGAR EL WOD
-function toggleWod(id) {
-    let abiertos = document.querySelectorAll('.wod-desplegable');
-    abiertos.forEach(elemento => {
-        if (elemento.id !== id) {
-            elemento.classList.remove('mostrar');
-        }
-    });
-    document.getElementById(id).classList.toggle('mostrar');
-}
-
 //FUNCIÓN RESERVAS
 
  function seleccionarDia(dia, elemento) {
@@ -88,12 +55,19 @@ function toggleWod(id) {
          if(esSabado && i < 9)continue;
 
         const hora = i + ":00";
+        //miro si la hora es par/impar
+        let claseNombre = (i % 2===0) ? "Crosstraining" : "Funcional";
+
         const div = document.createElement('div');
         div.className = 'hora-item'; 
        
         div.innerHTML = `
             <span>${hora}</span>
-            <button class="boton-reservar-hora" onclick="reservar('${dia}', '${hora}')">Reservar</button>
+            <button class="boton-reservar-hora" onclick="reservar('${dia}', '${claseNombre}','${hora}')">Reservar</button>
+            <div class="botones-tipo-clases">
+                <button>${claseNombre}</button>
+                <button>OPEN BOX</button>
+            </div>
         `;
         contenedor.appendChild(div);
     }
@@ -101,7 +75,30 @@ function toggleWod(id) {
     
 }
 
-function reservar(dia, hora) {
-    alert("Has reservado el: " + dia + " a las " + hora);
+function reservar(dia,claseNombre, hora) {
+    alert("Has reservado " + claseNombre + " el: " + dia + " a las " + hora);
+}
+
+//FUNCIÓN COOKIES
+document.addEventListener("DOMContentLoaded", function() {
+    // Comprobar si ya existe la cookie en el navegador
+    if (!document.cookie.split('; ').find(row => row.startsWith('aceptado='))) {
+        document.getElementById('banner-cookies').style.display = 'block';
+    }
+});
+
+function aceptarCookie() {
+    // Crear la cookie: nombre, valor, duración (1 mes) y ruta
+    const d = new Date();
+    d.setTime(d.getTime() + (30*24*60*60*1000));
+    document.cookie = "aceptado=true; expires=" + d.toUTCString() + "; path=/";
+    
+    // Ocultar el banner
+    document.getElementById('banner-cookies').style.display = 'none';
+}
+
+function rechazarCookie() {
+   
+    document.getElementById('banner-cookies').style.display = 'none';
 }
 

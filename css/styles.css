@@ -133,6 +133,8 @@ body.pagina-login {
     border-left: 4px solid aquamarine; /* Un detalle de color a la izquierda */
     padding-left: 20px;
 }
+
+
 .body-dashboard .cabecera-bienvenida h1 {
     font-size: 2.2rem;
     color: #ffffff;
@@ -155,7 +157,7 @@ body.pagina-login {
 }
 
 .logo strong { 
-    color: aquamarine; /* El naranja corporativo */
+    color: aquamarine; 
 }
 .logo img{
     width: 90px;           /* Ajusta el tamaño a mi gusto */
@@ -178,10 +180,10 @@ body.pagina-login {
     transition: 0.3s;
 }
 
-/* Estado activo y hover */
+/* Botón inicio y hover */
 .enlaces a:hover, 
 .enlaces a.activo { 
-    color: white; 
+    color: rgb(246, 246, 246); 
 }
 
 /* Botón de salir destacado */
@@ -212,7 +214,7 @@ body.pagina-login {
 }
 
 .tarjeta {
-    background: #373636;      /* Gris muy oscuro */
+    background: #373636;     
     padding: 35px;            /* Espacio interno para que respire */
     border-radius: 15px;      /* Bordes redondeados modernos */
     border: 1px solid #282828;
@@ -225,7 +227,7 @@ body.pagina-login {
     overflow: hidden;
 }
 
-/* El toque WodBuster: Borde superior naranja */
+/* Borde superior tarjeta */
 .seccion-unica {
     border-top: 5px solid aquamarine;
 }
@@ -234,8 +236,6 @@ body.pagina-login {
 .tarjeta:hover {
     transform: translateY(-8px); /* Sube un poquito */
     border-color:aquamarine ;        
-    background: rgb(77, 187, 150);  /* Se aclara un pelín el fondo */
-   
 }
 
 /* Estilo de los textos dentro de la tarjeta */
@@ -247,9 +247,13 @@ body.pagina-login {
     letter-spacing: 1px;
 }
 
+.p-tarjetas-letras{
+    color: #fdfefd;
+}
 
 
-/* --- PÁGINA RESERVAS --- */
+
+/* --- PÁGINA RESERVAS DÍAS --- */
 .selector-dias {
     display: flex;
     justify-content: space-between; /* Separa los botones ocupando todo el ancho */
@@ -272,28 +276,6 @@ body.pagina-login {
     font-weight: bold;
     transition: 0.3s;
 }
-/*Fondo para día seleccionado*/
-.boton-dia.activo, .boton-dia:hover {
-    background: rgb(77, 187, 150);
-  
-}
-
-.cuadricula-horarios {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 25px;
-    width: 100%;
-    margin-top: 40px;
-}
-/*Cajita de las hora de reservas*/
-.hora-item {
-    background: #c4c0c0;
-    padding:40px 20px;
-    border-radius: 18px;
-    border: 3px solid aquamarine;
-    text-align: center;
-}
-
 .boton-reservar-hora {
     background: aquamarine;
     color: rgb(35, 34, 34);
@@ -303,6 +285,64 @@ body.pagina-login {
     margin-top: 15px;
     cursor: pointer; /*aparece la manita*/
     width: 100%;
+}
+
+.botones-tipo-clases {
+   
+    display: flex;
+    flex-direction: column; /* Uno debajo de otro */
+    gap: 5px;               /* Separación entre ellos */
+    margin-top: 9px;       /* Separación del botón Reservar */
+    cursor: none;
+}
+
+/* Estilo para los dos botones informativos de clases */
+.botones-tipo-clases button {
+    background: #444; 
+    color: white;
+    border: 1px solid #666;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: default; /* Para que no salga la manita */
+}
+
+/* Para que los botones informativos sean un poco más pequeños que el de Reservar */
+.botones-info .boton-reservar-hora {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+    cursor: default;     /* Para que el usuario sepa que no se clican */
+}
+
+
+/*Fondo para día seleccionado*/
+.boton-dia.activo, .boton-dia:hover {
+    background: rgb(77, 187, 150);
+  
+}
+
+.cuadricula-horarios {
+    display: grid;
+    /* Subimos de 150px a 200px para que quepan los nombres de las clases */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    gap: 25px;
+    width: 100%;
+    margin-top: 40px;
+    padding-bottom: 50px; /* Espacio extra al final */
+}
+/*Cajita de las hora de reservas*/
+.hora-item {
+    background: #c4c0c0;
+    padding: 20px; /* Bajamos de 40px a 20px para que no explote la caja */
+    border-radius: 18px;
+    border: 3px solid aquamarine;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -411,6 +451,15 @@ body.pagina-login {
     border-bottom: 2px solid aq;
     padding-bottom: 10px;
 }
+/* cabecera de mi_progreso*/
+.cabecera-mi-progreso{
+    color:rgb(240, 246, 244);
+    width: 100%;
+    text-align: center;
+}
+.cabecera-mi-progreso strong{
+    color: aquamarine;
+}
 
 /* Estructura de la tabla */
 .tabla-pagos {
@@ -445,9 +494,6 @@ body.pagina-login {
     font-weight: bold;
 }
 
-
-
-
 /* Mensaje cuando no hay datos */
 .sin-datos {
     text-align: center;
@@ -455,12 +501,12 @@ body.pagina-login {
     
 }
 
-/* Estilos para la tabla de administración */
+/* Estilos para la tabla de administración de pagos */
 .table-admin_pagos {
     width: 90%;
     margin: 20px auto;
     border-collapse: collapse;
-    background-color: #1a1a1a; /* Fondo oscuro como mi login */
+    background-color: #1a1a1a; 
     color: #fff;
     font-family: sans-serif;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
@@ -525,10 +571,160 @@ body.pagina-login {
 }
 
 .header-admin_pagos{
-    background-color: rgb(63, 66, 66);
+    background-color: rgb(249, 250, 250);
     text-align: center;
     color: #060000;
     
 }
 
+.cabecera-editar_pagos{
+    background-color: rgb(241, 244, 243);
+    text-align: center;
+}
+
+/* Estilo para el contenedor del formulario */
+.form-editar_pagos {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+   
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo para las etiquetas (Labels) */
+.form-editar_pagos label {
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Estilo para inputs y select */
+.form-editar_pagos input[type="text"],
+.form-editar_pagos input[type="number"],
+.form-editar_pagos select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Para que el padding no ensanche el input */
+}
+
+/* Estilo para el botón */
+.form-editar_pagos button {
+    width: 100%;
+    padding: 12px;
+    background-color: aquamarine; 
+    color: rgb(14, 14, 14);
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.form-editar_pagos button:hover {
+    background-color: #218838;
+}
+
+/* Estilo para el enlace de volver */
+.form-editar_pagos a {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #666;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.form-editar_pagos a:hover {
+    text-decoration: underline;
+}
+
+/* Footer*/
+.pie-pagina {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: #1a1a1a;
+    color: #ffffff;
+    padding: 10px 20px; /* 10px arriba/abajo, 20px de margen a la izquierda */
+    z-index: 1000;
+}
+
+.contenedor-footer {
+    display: flex;       /* Alinea todo en horizontal */
+    align-items: center; /* Alinea todos los textos a la misma altura (centro vertical) */
+    gap: 20px;           /* Espacio entre cada bloque de texto */
+}
+
+.footer-links {
+    display: flex;       /* Alinea los <a> internos en horizontal */
+    gap: 15px;           /* Espacio entre Soporte, Términos y Contacto */
+}
+
+/* IMPORTANTE: Quitar márgenes a todos los p para que no salten de línea */
+.contenedor-footer p {
+    margin: 0;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 0px;
+}
+
+.footer-links a {
+    color: rgb(241, 246, 244);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.contenedor-footer small {
+    color: #777;
+}
+.footer-strong strong {
+    color: aquamarine; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; /* Separa un poco las letras para que se lea mejor */
+}
+
+/*COOKIES*/
+.cookie-banner {
+    position: fixed;
+    bottom:120px;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    width: 900px;             /* Más grande */
+    padding: 60px;            /* Más espacio interno */
+    background-color: #4f4e4e;
+    color: #ffffff;
+    border: 3px solid aquamarine;
+    text-align: center;
+    display: block;
+}
+
+.btn-aceptar {
+    background: aquamarine;
+    border: none;
+    color: rgb(30, 28, 28);
+    padding: 10px;
+    cursor: pointer;
+}
+.btn-rechazar {
+    background-color: #333; 
+    color: #bbb;
+    border: none;
+    padding: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
 

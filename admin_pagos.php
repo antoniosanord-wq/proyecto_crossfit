@@ -20,23 +20,23 @@ $resultado = mysqli_query($conexion, $sql);
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Panel Admin - Gestión de Pagos</title>
     <link rel="stylesheet" href="css/styles.css?v=1">
 </head>
+
 <body class="body-dashboard">
-    
-   
-     <nav class="barra-navegacion">
+
+
+    <nav class="barra-navegacion">
         <div class="logo"><strong>WOD</strong>Cross <img src="img/logo.png" alt="logo"></div>
         <div class="enlaces">
-            <a href="dashboard.php" class="activo">INICIO</a>
-           
             <a href="competiciones.php" onclick="">COMPETICIONES</a>
             <a href="mi_progreso.php" onclick="competiciones()">MI PROGRESO</a>
-            
-            <a href="php/logout.php" class="boton-salir">SALIR</a>
+
+            <a href="index.html" class="boton-salir">SALIR</a>
         </div>
     </nav>
 
@@ -61,22 +61,23 @@ $resultado = mysqli_query($conexion, $sql);
         </thead>
         <tbody>
             <?php while ($pago = mysqli_fetch_assoc($resultado)): ?>
-            <tr>
-                <td><?php echo $pago['id_pago']; ?></td>
-                <td><?php echo $pago['email_usuario']; ?></td>
-                <td><?php echo $pago['fecha']; ?></td>
-                <td><?php echo $pago['concepto']; ?></td>
-                <td><?php echo $pago['cantidad']; ?>€</td>
-                <td>
-                    <strong><?php echo $pago['estado']; ?></strong>
-                </td>
-                <td>
-                    <a href="editar_pagos.php?id=<?php echo $pago['id_pago']; ?>">✏️ Editar</a>
-                </td>
-            </tr>
+                <tr>
+                    <td><?php echo $pago['id']; ?></td>
+                    <td><?php echo $pago['email_usuario']; ?></td>
+                    <td><?php echo $pago['fecha']; ?></td>
+                    <td><?php echo $pago['concepto']; ?></td>
+                    <td><?php echo $pago['cantidad']; ?>€</td>
+                    <td>
+                        <strong><?php echo $pago['estado']; ?></strong>
+                    </td>
+                    <td>
+                        <a href="editar_pagos.php?id=<?php echo $pago['id']; ?>">✏️ Editar</a>
+                    </td>
+                </tr>
             <?php endwhile; ?>
         </tbody>
     </table>
 
 </body>
+
 </html>

@@ -65,7 +65,7 @@ $datos = mysqli_fetch_assoc($query_datos);
       <nav class="barra-navegacion">
         <div class="logo"><strong>WOD</strong>Cross <img src="img/logo.png" alt="logo"></div>
         <div class="enlaces">
-            <a href="dashboard.php">VOLVER AL PANEL</a>
+            <a href="admin_pagos.php">VOLVER AL PANEL</a>
         </div>
     </nav>
 

@@ -11,6 +11,11 @@ $email_usuario = $_SESSION['usuario'];
 $sql = "SELECT * FROM usuarios WHERE email = '$email_usuario'";
 $query = mysqli_query($conexion, $sql);
 $datos = mysqli_fetch_assoc($query);
+
+// --- COOKIE ---
+// Guardamos el nombre del usuario por 30 días 
+// Usamos $datos['nombre']
+setcookie("nombre_atleta", $datos['nombre'], time() + (86400 * 30), "/");
 ?>
 
 <!DOCTYPE html>
@@ -39,21 +44,21 @@ $datos = mysqli_fetch_assoc($query);
 
     <div class="contenedor-principal">
         <header class="cabecera-bienvenida">
-            <h1>¡Bienvenido!, <strong><?php echo $datos['nombre']; ?></strong></h1>
+            <h1>¡Bienvenid@!, <strong><?php echo $datos['nombre']; ?></strong></h1>
         </header><br><br><br>
 
         <div id="contenido-principal" class="panel-control">
             <a href="reservas.php" onclick="mostrarReservas()" class="tarjeta-enlace">
                 <section class="tarjeta seccion-unica">
                     <h2>Reservas</h2>
-                    <p>Gestiona tus clases y horarios.</p>
+                    <p class="p-tarjetas-letras">Gestiona tus clases y horarios.</p>
                 </section>
             </a>
 
              <a href="competiciones.php" class="tarjeta-enlace">
                 <section class="tarjeta seccion-unica">
                     <h2>Competiciones</h2>
-                    <p>Ver competiciones disponibles</p>
+                    <p class="p-tarjetas-letras">Ver competiciones disponibles</p>
                 </section>
             </a>
             
@@ -61,7 +66,7 @@ $datos = mysqli_fetch_assoc($query);
             <a href="mi_progreso.php" class="tarjeta-enlace">
                 <section class="tarjeta seccion-unica">
                     <h2>Mi Progreso</h2>
-                    <p>Ver progreso</p>
+                    <p class="p-tarjetas-letras">Ver progreso</p>
                    
                 </section>
             </a>
@@ -69,7 +74,7 @@ $datos = mysqli_fetch_assoc($query);
             <a href="pagos.php" class="tarjeta-enlace">
                 <section class="tarjeta seccion-unica">
                     <h2>Mis Pagos</h2>
-                    <p>Estado de suscripción y recibos.</p>
+                    <p class="p-tarjetas-letras">Estado de suscripción y recibos.</p>
                 </section>
             </a>
 
@@ -79,6 +84,16 @@ $datos = mysqli_fetch_assoc($query);
         <div id="seccion-reservas-detallada" style="display:none;">
             </div>
     </div>
+
+    <?php if (!isset($_COOKIE['aceptado'])): ?>
+    <div id="banner-cookies" class="cookie-banner">
+        <p>¿Aceptas las cookies para tu entrenamiento? 🏋️‍♂️</p>
+        <button onclick="aceptarCookie()" class="btn-aceptar">ACEPTAR</button>
+        <button onclick="rechazarCookie()" class="btn-rechazar">RECHAZAR</button>
+    </div>
+<?php endif; ?>
+
+     <?php include('php/footer.php'); ?>
 
     <script src="js/script.js"></script>
 </body>
